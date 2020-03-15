@@ -1,1 +1,4 @@
 spectral_type/data/*
+.ipynb_checkpoints
+**/*.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
