@@ -1,0 +1,137 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><link href="../../tools.css" rel="stylesheet" type="text/css" />
+    <script src="naviClass.js"></script>
+    <style>
+	    a       {font-family:sans-serif;font-weight:bold;color:#000000;font-size:9pt;}
+        .d		{font-size:9pt;font-family:sans-serif;color:#000000;}
+        .c		{font-size:9pt;font-family:sans-serif;color:#88ff88;}
+        #start  {position: absolute; left: 20px; top:475px;font-family:sans-serif;color:#000000;font-size:9pt}
+        #qframe {position: absolute; left:  0px; top:20px;z-index:1;width:150px;}
+	    #sframe {position: absolute; left:  0px; top:470px;z-index:1}
+        #query  {position: absolute; left: 24px; top:37px;z-index:5;}
+        #links  {position: absolute; left: 20px; top:355px;}
+	    #thumbnail  {position: absolute; left: 20px; top:479px;z-index:5}
+        #check  {position: absolute; left:  0px; top: 0px;visibility:hidden;width:12px;}
+        #zimage {position: absolute; left:11px; top:211px;z-index:3;}
+        #zframe {position: absolute; left: 0px; top:200px;z-index:5;width:150px;}
+        #nearlabel {position: absolute; left:32px; top:6px;z-index:5;
+			    width:150px;font-family:sans-serif;color:#000000;
+			    font-size:9pt;z-index:10;width:110px;}
+        #test  {position: absolute; left: 20px; top:150px;font-family:sans-serif;color:#000000;font-size:9pt}			
+    </style>
+    <script type="text/javascript">
+        var check;
+        function quicklook(id) {
+            var url = "../quicklook/quickobj.aspx?id=" + id;
+            var w = window.open(url, '_blank');
+            w.focus();
+        }
+        function explore(id) {
+            var url = "../explore/obj.aspx?id=" + id;
+            var w = window.open(url, '_blank');
+            w.focus();
+        }
+        function exploreAPOGEE(id) {
+            var url = "../explore/summary.aspx?apid=" + id;
+            var w = window.open(url, '_blank');
+            w.focus();
+        }
+        function saveBook(id) {
+            check.show();
+            var url = "book.aspx?add=" + id;
+            var frame = document.getElementById("test");
+            frame.src = url;
+        }
+        function init() {
+            check = new Div('check', 120, 428);
+            //check.show();
+            check.hide();
+        }
+        function showBook() {
+            w = window.open("book.aspx", "POPUP");
+            w.focus();
+        }
+        function showSTARTBall() {
+            w = window.open("STARTFrame.html", "STARTBall", "width=300,height=325");
+            w.focus();
+        }
+        function showSTARTBallHelp() {
+            w = window.open("skymapshelp.aspx", "help", "width=800,height=600,resizeable,scrollbars");
+            w.focus();
+        }
+        function recenter(ra_, dec_) {
+
+            window.parent.document.getElementById("ra").value = ra_;
+            window.parent.document.getElementById("dec").value = dec_;
+            //alert(window.parent.document.getElementById("getImageId").value);
+            window.parent.document.getElementById('getImageId').disabled = false;
+            window.parent.document.getElementById("getImage").click();
+
+            //var s = "navictrl.aspx?ra="+ra_+"&dec="+dec_;
+            //s += "&scale=0.8&opt=";
+    //top.frames.ctrl.location.href=s;
+}
+</script>
+    <title>
+
+</title></head>
+<body onload="init()">
+
+    <form method="post" action="./shownearest.aspx?ra=186.18741666666668&amp;dec=58.553875&amp;scale=0.2&amp;radius=0.2" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="wDfRsvfXEWuueQs2ADg3Lh2Y2Gidc8q+asgABvNJNIt3q0II+G+d2czDNJhL3g2+trXSHQV+NDc/z0MEN5JoEVfeb4cCONPYLdTTXj4lTAo=" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="B2DDB582" />
+    <div>
+    
+    </div>
+    </form>
+
+    <div id='nearlabel' ONMOUSEOVER="this.T_TEMP='2000';this.T_WIDTH='140';return escape('Data about the object you selected (marked with a green square')">Selected object</div>
+	<div id='qframe'><img src='images/queryframe.gif' width="150" height="180"></div>
+	<div id='check' ><img src='images/checkmark.gif' width="12" height="10"></div>
+
+<div id='query'>
+<table width='100' border='0' cellspacing='1' bgcolor='#000000'>
+<tr valign='top' ONMOUSEOVER="this.T_TEMP='2000';this.T_WIDTH='140';return escape('Right ascension (ra) is like longitude in the sky')"><td width='20' align='left' class='c'>ra</td><td align='right' class='c'>186.18749</td></tr>
+<tr valign='top' ONMOUSEOVER="this.T_TEMP='2000';this.T_WIDTH='140';return escape('Declination (dec) is like latitude in the sky')"><td width='20' align='left' class='c'>dec</td><td align='right' class='c'>58.55390</td></tr>
+<tr valign='top' ONMOUSEOVER="this.T_TEMP='2000';this.T_WIDTH='140';return escape('STAR or GALAXY (but some bright stars are misclassified as galaxies)')"><td width='20' align='left' class='c'>type</td><td align='right' class='c'>STAR</td></tr>
+<tr valign='top' ONMOUSEOVER="this.T_TEMP='2000';this.T_WIDTH='140';return escape('Magnitude (brightness) in the ultraviolet (u) wavelength')"><td width='20' align='left' class='c'>u</td><td align='right' class='c'>19.09</td></tr>
+<tr valign='top' ONMOUSEOVER="this.T_TEMP='2000';this.T_WIDTH='140';return escape('Magnitude (brightness) in the green (g) wavelength')"><td width='20' align='left' class='c'>g</td><td align='right' class='c'>18.49</td></tr>
+<tr valign='top' ONMOUSEOVER="this.T_TEMP='2000';this.T_WIDTH='140';return escape('Magnitude (brightness) in the red (r) wavelength')"><td width='20' align='left' class='c'>r</td><td align='right' class='c'>18.85</td></tr>
+<tr valign='top' ONMOUSEOVER="this.T_TEMP='2000';this.T_WIDTH='140';return escape('Magnitude (brightness) in the shorter infrared (i) wavelength')"><td width='20' align='left' class='c'>i</td><td align='right' class='c'>19.10</td></tr>
+<tr valign='top' ONMOUSEOVER="this.T_TEMP='2000';this.T_WIDTH='140';return escape('Magnitude (brightness) in the farther infrared (z) wavelength')"><td width='20' align='left' class='c'>z</td><td align='right' class='c'>19.38</td></tr>
+</table>
+</div>
+<div id='zimage'><img src='http://skyserver.sdss.org/dr16/SkyServerWS/ImgCutout/getjpeg?TaskName=Skyserver.Chart.ShowNearest&ra=186.18749&dec=58.55390&scale=0.2&opt=' width=128 height=128></div>
+<div id='zframe'><img src='images/mglass.gif' width=150 height=150 ONMOUSEOVER="this.T_TEMP='2000';this.T_WIDTH='140';return escape('Close-up image of selected object')"></div>
+<div id='links'>
+  <table border='0' cellspacing='2' cellpadding='0'>
+<tr ONMOUSEOVER="this.T_TEMP='2000';this.T_WIDTH='140';return escape('See this object&rsquo;s basic data in the Quick Look tool')"><td width=20><a href="javascript:quicklook('1237658607681929371')">
+    <img src='images/button.gif' width=20 height=20 border=0></a></td>
+<td width=80><a href="javascript:quicklook('1237658607681929371')">Quick Look</a></td></tr>
+<tr ONMOUSEOVER="this.T_TEMP='2000';this.T_WIDTH='140';return escape('See this object&rsquo;s complete data in the Object Explorer')"><td width=20><a href="javascript:explore('1237658607681929371')">
+    <img src='images/button.gif' width=20 height=20 border=0></a></td>
+<td width=80><a href="javascript:explore('1237658607681929371')">Explore</a></td></tr>
+<tr ONMOUSEOVER="this.T_TEMP='2000';this.T_WIDTH='140';return escape('Redraw the image with this object in the center')"><td width=20><a href="javascript:recenter(186.187416666667,58.553875)">     <img src='images/button.gif' width=20 height=20 border=0></a></td><td width=80><a href="javascript:recenter(186.187416666667,58.553875)">Recenter</a></td></tr>
+<tr ONMOUSEOVER="this.T_TEMP='2000';this.T_WIDTH='140';return escape('Save this object to your online notebook')"><td width=20><a href="javascript:saveBook('1237658607681929371')">     <img src='images/button.gif' width=20 height=20 border=0></a></td><td width=80><a href="javascript:saveBook('1237658607681929371')">Add to notes</a></td></tr>
+<tr ONMOUSEOVER="this.T_TEMP='2000';this.T_WIDTH='140';return escape('Show your online notebook')"><td width=20><a href='javascript:showBook()'>     <img src='images/button.gif' width=20 height=20 border=0></a></td><td width=80><a href='javascript:showBook()'>Show notes</a></td></tr>
+  </table>
+</div>
+<div id='sframe' ><img src='images/specframe.png'></div><div id='thumbnail'>
+  <table border='0'>
+<tr>
+<td>
+<a href='../../get/SpecById.ashx?id=1480713180584896512' target='_blank'><img src='../../get/SpecById.ashx?id=1480713180584896512' width='128' height='102' border='0' align=left></a>
+</td>
+</tr>
+</table>
+</div>
+
+
+ <!--Iframe for shownearest test-->
+<iframe id="test" name='test' width ="0" height="0" scrolling="no"  src="blank.html"/>	
+</body>
+</html>
